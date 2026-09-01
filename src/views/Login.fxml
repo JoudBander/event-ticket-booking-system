@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER" styleClass="top-bar">
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+            <Label text="Event Ticket Booking System">
+                <font>
+                    <Font name="Arial Bold" size="18" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="gray-container">
+            <padding>
+                <Insets bottom="60" left="40" right="40" top="60" />
+            </padding>
+
+            <!-- Title -->
+            <Label styleClass="title-label" text="Login">
+                <font>
+                    <Font name="Arial Bold" size="28" />
+                </font>
+            </Label>
+
+            <Label styleClass="subtitle-label" text="Welcome back! Please login to your account">
+                <font>
+                    <Font size="16" />
+                </font>
+            </Label>
+
+            <!-- Login Form -->
+            <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 40;">
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
+
+                <!-- Username Field -->
+                <VBox spacing="8" prefWidth="350">
+                    <Label text="Username:">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="usernameField" promptText="Enter your username" prefHeight="40" styleClass="text-field">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </TextField>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="8" prefWidth="350">
+                    <Label text="Password:">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="passwordField" promptText="Enter your password" prefHeight="40" styleClass="text-field">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </PasswordField>
+                </VBox>
+
+                <!-- Status Label -->
+                <Label fx:id="statusLabel" text="" textFill="#d32f2f">
+                    <font>
+                        <Font size="13" />
+                    </font>
+                </Label>
+
+                <!-- Buttons -->
+                <HBox alignment="CENTER" spacing="15">
+                    <VBox.margin>
+                        <Insets top="10" />
+                    </VBox.margin>
+
+                    <Button text="Login" onAction="#handleLogin" prefWidth="160" prefHeight="40" styleClass="primary-button">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </Button>
+
+                    <Button text="Register" onAction="#handleRegister" prefWidth="160" prefHeight="40" styleClass="secondary-button">
+                        <font>
+                            <Font size="14" />
+                        </font>
+                    </Button>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <padding>
+                <Insets bottom="10" top="10" />
+            </padding>
+            <Label text="CS 313 - Event Ticket Booking System © 2024">
+                <font>
+                    <Font size="11" />
+                </font>
+            </Label>
+        </HBox>
+    </bottom>
+
+</BorderPane>

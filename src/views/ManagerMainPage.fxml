@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.ManagerMainPageController"
+            stylesheets="@style.css" styleClass="root">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="Event Ticket Booking System - Manager Portal">
+                <font>
+                    <Font name="Arial Bold" size="18"/>
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome, Manager!">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+
+            <Button text="Logout" onAction="#handleLogout" styleClass="secondary-button">
+                <font>
+                    <Font size="12"/>
+                </font>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="40" styleClass="gray-container">
+            <padding>
+                <Insets top="60" right="40" bottom="60" left="40"/>
+            </padding>
+
+            <!-- Title -->
+            <Label text="Manager Dashboard" styleClass="title-label">
+                <font>
+                    <Font name="Arial Bold" size="28"/>
+                </font>
+            </Label>
+
+            <Label text="Manage your events" styleClass="subtitle-label">
+                <font>
+                    <Font size="16"/>
+                </font>
+            </Label>
+
+            <!-- Navigation Buttons -->
+            <HBox alignment="CENTER" spacing="40">
+
+                <!-- Create Event Button -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Button text="Create Event" onAction="#handleCreateEvent"
+                            prefWidth="250" prefHeight="120" styleClass="nav-button">
+                        <font>
+                            <Font size="18"/>
+                        </font>
+                    </Button>
+                    <Label text="Create and schedule new events" styleClass="label">
+                        <font>
+                            <Font size="12"/>
+                        </font>
+                    </Label>
+                </VBox>
+
+                <!-- My Events Button -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Button text="My Events" onAction="#handleMyEvents"
+                            prefWidth="250" prefHeight="120" styleClass="nav-button">
+                        <font>
+                            <Font size="18"/>
+                        </font>
+                    </Button>
+                    <Label text="View and manage your events" styleClass="label">
+                        <font>
+                            <Font size="12"/>
+                        </font>
+                    </Label>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+            <Label text="CS 313 - Event Ticket Booking System © 2024">
+                <font>
+                    <Font size="11"/>
+                </font>
+            </Label>
+        </HBox>
+    </bottom>
+
+</BorderPane>

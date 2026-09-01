@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.MyBookingsPageController"
+            stylesheets="@style.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="My Bookings" styleClass="welcome-text">
+                <font>
+                    <Font name="Arial Bold" size="20"/>
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome!">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+
+            <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="card">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Your Booking History" styleClass="section-header">
+                <font>
+                    <Font name="Arial Bold" size="16"/>
+                </font>
+            </Label>
+
+            <TableView fx:id="bookingsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="bookingIdCol" text="Booking ID" prefWidth="120"/>
+                    <TableColumn fx:id="eventNameCol" text="Event Name" prefWidth="200"/>
+                    <TableColumn fx:id="bookingDateCol" text="Booking Date" prefWidth="140"/>
+                    <TableColumn fx:id="numTicketsCol" text="Tickets" prefWidth="80"/>
+                    <TableColumn fx:id="totalAmountCol" text="Amount (SAR)" prefWidth="120"/>
+                    <TableColumn fx:id="statusCol" text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="Cancel Booking" onAction="#handleCancelBooking" prefWidth="130" styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

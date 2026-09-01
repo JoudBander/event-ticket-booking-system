@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.CreateEventPageController"
+            stylesheets="@style.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="Create New Event" styleClass="welcome-text">
+                <font>
+                    <Font name="Arial Bold" size="20"/>
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome!">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+
+            <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" styleClass="card">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <Label text="Event Details" styleClass="section-header">
+                <font>
+                    <Font name="Arial Bold" size="16"/>
+                </font>
+            </Label>
+
+            <GridPane hgap="15" vgap="15">
+                <!-- Event Name -->
+                <Label text="Event Name:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <TextField fx:id="eventNameField" promptText="Enter event name" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <!-- Event Type -->
+                <Label text="Event Type:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <GridPane.margin>
+                        <Insets left="20"/>
+                    </GridPane.margin>
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="eventTypeCombo" promptText="Select type" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <!-- Event Date -->
+                <Label text="Event Date:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <DatePicker fx:id="eventDatePicker" promptText="Select date" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <!-- Location -->
+                <Label text="Location:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="20"/>
+                    </GridPane.margin>
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <TextField fx:id="locationField" promptText="Enter location" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <!-- Ticket Price -->
+                <Label text="Ticket Price (SAR):" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <TextField fx:id="ticketPriceField" promptText="0.00" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <!-- Total Seats -->
+                <Label text="Total Seats:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets left="20"/>
+                    </GridPane.margin>
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <TextField fx:id="totalSeatsField" promptText="100" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+            </GridPane>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <padding>
+                    <Insets top="20"/>
+                </padding>
+
+                <Button text="Create Event" onAction="#handleCreateEvent" prefWidth="140" styleClass="success-button">
+                    <font>
+                        <Font size="14"/>
+                    </font>
+                </Button>
+
+                <Button text="Clear" onAction="#handleClear" prefWidth="100" styleClass="secondary-button">
+                    <font>
+                        <Font size="14"/>
+                    </font>
+                </Button>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

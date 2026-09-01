@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.MyEventsPageController"
+            stylesheets="@style.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="My Events" styleClass="welcome-text">
+                <font>
+                    <Font name="Arial Bold" size="20"/>
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome!">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+
+            <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="card">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Events You Created" styleClass="section-header">
+                <font>
+                    <Font name="Arial Bold" size="16"/>
+                </font>
+            </Label>
+
+            <TableView fx:id="eventsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="eventIdCol" text="Event ID" prefWidth="100"/>
+                    <TableColumn fx:id="eventNameCol" text="Event Name" prefWidth="150"/>
+                    <TableColumn fx:id="eventTypeCol" text="Type" prefWidth="100"/>
+                    <TableColumn fx:id="eventDateCol" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="locationCol" text="Location" prefWidth="130"/>
+                    <TableColumn fx:id="priceCol" text="Price (SAR)" prefWidth="100"/>
+                    <TableColumn fx:id="totalSeatsCol" text="Total Seats" prefWidth="100"/>
+                    <TableColumn fx:id="availableSeatsCol" text="Available" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="Delete Event" onAction="#handleDeleteEvent" prefWidth="130" styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

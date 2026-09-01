@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.UserManagementPageController"
+            stylesheets="@style.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="User Management" styleClass="welcome-text">
+                <font>
+                    <Font name="Arial Bold" size="20"/>
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome!">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+
+            <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" styleClass="card">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Statistics Section -->
+            <Label text="System Statistics" styleClass="section-header">
+                <font>
+                    <Font name="Arial Bold" size="16"/>
+                </font>
+            </Label>
+
+            <GridPane hgap="30" vgap="10" styleClass="gray-container">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Total Users:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Arial Bold" size="13"/>
+                    </font>
+                </Label>
+                <Label fx:id="totalUsersLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+
+                <Label text="Total Events:" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Arial Bold" size="13"/>
+                    </font>
+                </Label>
+                <Label fx:id="totalEventsLabel" text="0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+
+                <Label text="Total Bookings:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Arial Bold" size="13"/>
+                    </font>
+                </Label>
+                <Label fx:id="totalBookingsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+
+                <Label text="Total Revenue:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Arial Bold" size="13"/>
+                    </font>
+                </Label>
+                <Label fx:id="totalRevenueLabel" text="0.00 SAR" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+            </GridPane>
+
+            <!-- Users Table Section -->
+            <Label text="All Users" styleClass="section-header">
+                <VBox.margin>
+                    <Insets top="20"/>
+                </VBox.margin>
+                <font>
+                    <Font name="Arial Bold" size="16"/>
+                </font>
+            </Label>
+
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="gray-container">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Filter by Type:">
+                    <font>
+                        <Font size="13"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="userTypeCombo" prefWidth="150" onAction="#handleRefresh"/>
+            </HBox>
+
+            <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="userIdCol" text="User ID" prefWidth="120"/>
+                    <TableColumn fx:id="usernameCol" text="Username" prefWidth="120"/>
+                    <TableColumn fx:id="fullNameCol" text="Full Name" prefWidth="150"/>
+                    <TableColumn fx:id="emailCol" text="Email" prefWidth="180"/>
+                    <TableColumn fx:id="phoneCol" text="Phone" prefWidth="120"/>
+                    <TableColumn fx:id="userTypeCol" text="Type" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="Delete User" onAction="#handleDeleteUser" prefWidth="130" styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

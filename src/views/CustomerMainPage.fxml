@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerMainPageController">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <Label text="Event Ticket Booking System - Customer Portal">
+                <font>
+                    <Font name="Arial Bold" size="18" />
+                </font>
+            </Label>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Label fx:id="welcomeLabel" text="Welcome, Customer!">
+                <font>
+                    <Font size="14" />
+                </font>
+            </Label>
+
+            <Button onAction="#handleLogout" styleClass="secondary-button" text="Logout">
+                <font>
+                    <Font size="12" />
+                </font>
+            </Button>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="40" styleClass="gray-container">
+            <padding>
+                <Insets bottom="60" left="40" right="40" top="60" />
+            </padding>
+
+            <!-- Title -->
+            <Label styleClass="title-label" text="Customer Dashboard">
+                <font>
+                    <Font name="Arial Bold" size="28" />
+                </font>
+            </Label>
+
+            <Label styleClass="subtitle-label" text="What would you like to do today?">
+                <font>
+                    <Font size="16" />
+                </font>
+            </Label>
+
+            <!-- Navigation Buttons -->
+            <HBox alignment="CENTER" spacing="40">
+
+                <!-- Available Events Button -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Button onAction="#handleBrowseEvents" prefHeight="120" prefWidth="250" styleClass="nav-button" text="Browse Events">
+                        <font>
+                            <Font size="18" />
+                        </font>
+                    </Button>
+                    <Label styleClass="label" text="View and book available events">
+                        <font>
+                            <Font size="12" />
+                        </font>
+                    </Label>
+                </VBox>
+
+                <!-- My Bookings Button -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Button onAction="#handleMyBookings" prefHeight="120" prefWidth="250" styleClass="nav-button" text=" My Bookings">
+                        <font>
+                            <Font size="18" />
+                        </font>
+                    </Button>
+                    <Label styleClass="label" text="View and manage your bookings">
+                        <font>
+                            <Font size="12" />
+                        </font>
+                    </Label>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <padding>
+                <Insets bottom="10" top="10" />
+            </padding>
+            <Label text="CS 313 - Event Ticket Booking System © 2024">
+                <font>
+                    <Font size="11" />
+                </font>
+            </Label>
+        </HBox>
+    </bottom>
+
+</BorderPane>
