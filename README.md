@@ -78,9 +78,8 @@ _The project report already has a full walkthrough — login, booking, cancellat
 ## What's not finished
 
 The admin side has some scaffolding for usage statistics (`generateStatistics()` in the `Admin` class) that was never wired up to real queries — right now it just returns placeholder values. Testing was manual, screen by screen, not automated. DB credentials are hardcoded for local development, which I'd externalize for anything beyond a class project.
-
 ## Author
 
-[Your Name]
+Joud Al Thonayan
 Computer Science student, Princess Nourah University
-[LinkedIn](#) • [GitHub](#) • [Portfolio](#)
+[LinkedIn](https://www.linkedin.com/in/joud-al-thonayan-bb126a431) • [GitHub](https://github.com/JoudBander)
