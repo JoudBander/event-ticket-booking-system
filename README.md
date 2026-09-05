@@ -6,7 +6,7 @@ A role-based JavaFX desktop application for booking event tickets, backed by an 
 ![JavaFX](https://img.shields.io/badge/JavaFX-0288D1?style=flat-square)
 ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=oracle&logoColor=white)
 
-Built as a 4-person team project for a university Advanced Programming course (CS313). I worked across the database layer, the controllers, and the UI, alongside three teammates.
+Built as a 4-person team project for a university Advanced Programming course (CS313). I contributed across the whole project, working alongside three teammates.
 
 ## Overview
 
@@ -83,23 +83,6 @@ EventTicketBookingSystemproject/
 ├── build.xml
 └── README.md
 ```
-
-## Running it
-
-You'll need NetBeans, JDK 25 with JavaFX configured, and a local Oracle instance (XE works fine).
-
-1. Clone the repo and open it in NetBeans (File → Open Project)
-2. Run `database/schema.sql` against your Oracle instance
-3. Update the connection details in `src/database/DatabaseConnection.java` if yours differ
-4. Run the project (Shift+F6, or `ant run` from the command line)
-
-## Worth pointing out
-
-`BookingDB.insert()` wraps the booking insert and the seat-count update in a single database transaction, so if either step fails, both roll back — seat counts can't drift out of sync with actual bookings. Every DAO class uses `PreparedStatement`, so there's no SQL injection surface anywhere in the data layer.
-
-## What's not finished
-
-The `Admin` class has a few statistics methods (`generateStatistics()`, `generateRevenueStats()`) that turned out to be redundant — the live stats actually shown on the User Management page (total users, events, bookings, revenue) are computed directly in the controller instead. Worth cleaning up as dead code rather than a missing feature. Testing was manual, screen by screen, not automated. DB credentials are hardcoded for local development, which I'd externalize for anything beyond a class project.
 
 ## Author
 
