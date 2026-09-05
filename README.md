@@ -20,6 +20,35 @@ The system supports three roles — Customer, Event Manager, and Admin — each 
 
 **Admin** — manage user accounts across all roles, oversee events and bookings platform-wide.
 
+## Screenshots
+
+**Customer**
+
+![Login](docs/screenshots/login.png)
+![Customer dashboard](docs/screenshots/customer-dashboard.png)
+![Available events](docs/screenshots/available-events.png)
+
+**Event Manager**
+
+![Manager dashboard](docs/screenshots/manager-dashboard.png)
+![My events](docs/screenshots/manager-my-events.png)
+
+**Admin**
+
+![Admin dashboard](docs/screenshots/admin-dashboard.png)
+![User management](docs/screenshots/admin-user-management.png)
+![All events](docs/screenshots/admin-all-events.png)
+
+## Design
+
+Class diagram covering the `User` hierarchy, `Event`, `Booking`, and the `Searchable` interface:
+
+![Class diagram](docs/screenshots/class-diagram.png)
+
+Screen navigation flow from login through each role's dashboard:
+
+![Navigation flow](docs/screenshots/navigation-flow.png)
+
 ## Database
 
 | Table | Key columns |
@@ -50,7 +79,7 @@ EventTicketBookingSystemproject/
 ├── lib/
 │   └── ojdbc8.jar
 ├── docs/
-│   └── project-report.docx
+│   └── screenshots/
 ├── build.xml
 └── README.md
 ```
@@ -64,23 +93,16 @@ You'll need NetBeans, JDK 25 with JavaFX configured, and a local Oracle instance
 3. Update the connection details in `src/database/DatabaseConnection.java` if yours differ
 4. Run the project (Shift+F6, or `ant run` from the command line)
 
-## Screenshots
-
-_The project report already has a full walkthrough — login, booking, cancellation, admin views — that's easy to re-crop from for these._
-
-![Customer view](docs/screenshots/customer-view.png)
-![Admin dashboard](docs/screenshots/admin-dashboard.png)
-
 ## Worth pointing out
 
 `BookingDB.insert()` wraps the booking insert and the seat-count update in a single database transaction, so if either step fails, both roll back — seat counts can't drift out of sync with actual bookings. Every DAO class uses `PreparedStatement`, so there's no SQL injection surface anywhere in the data layer.
 
 ## What's not finished
 
-The admin side has some scaffolding for usage statistics (`generateStatistics()` in the `Admin` class) that was never wired up to real queries — right now it just returns placeholder values. Testing was manual, screen by screen, not automated. DB credentials are hardcoded for local development, which I'd externalize for anything beyond a class project.
+The `Admin` class has a few statistics methods (`generateStatistics()`, `generateRevenueStats()`) that turned out to be redundant — the live stats actually shown on the User Management page (total users, events, bookings, revenue) are computed directly in the controller instead. Worth cleaning up as dead code rather than a missing feature. Testing was manual, screen by screen, not automated. DB credentials are hardcoded for local development, which I'd externalize for anything beyond a class project.
 
 ## Author
 
-[Your Name]
+Joud Al Thonayan
 Computer Science student, Princess Nourah University
-[LinkedIn](#) • [GitHub](#) • [Portfolio](#)
+[LinkedIn](https://www.linkedin.com/in/joud-al-thonayan-bb126a431) • [GitHub](https://github.com/JoudBander)
